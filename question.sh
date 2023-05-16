@@ -41,3 +41,4 @@
 #
 #  >>> Escriba su codigo a partir de este punto <<<
 #
+sed 's/^\([0-9]\)\/\([0-9]\)\/20\([0-9][0-9]\)/0\1\/0\2\/\3/g' data.csv | sed 's/^\([0-9][0-9]\)\/\([0-9][0-9]\)\/\([0-9][0-9]\)/20\3-\2-\1/g' | sed 's/;;/;\\N;/g' | sed 's/;\s*$/;\\N/g' |tr ',' '.' | tr ';' ',' | sed 's/a/A/g' | sed 's/n/N/g' | sed 's/,N/,\\N/g' | sed 's/c/C/g'
